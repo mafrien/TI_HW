@@ -1,0 +1,202 @@
+:root {
+  --base-font-family: 'Fira Sans', sans-serif, Helvetica;
+
+  --light-seawave-color: #7FACAC;
+  --dark-blue-color: #020275;
+  --dark-grey-color: #3D3D3F;
+  --light-blue-color: #93C4F5;
+  --mid-blue-color: #7CBAF9;
+
+  --avatar-border-color: white;
+  --shadow-color: #00000029;
+  --tasklist-back-color: #cbdff4bf;
+  --tasklist-last-back-color: #cbdff473;
+  --input-shadow-color: #222223;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: var(--base-font-family);
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(var(--mid-blue-color), var(--light-seawave-color)) center / cover no-repeat;
+  padding: 0 calc(100vw / 24);
+}
+
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(1rem, 2.7vw, 3.125rem);
+  padding: 4vh 0;
+  color: var(--dark-blue-color);
+}
+
+#author {
+  display: flex;
+  align-items: center;
+  gap: 4vw;
+}
+
+.avatar {
+  width: clamp(2rem, 6vw, 5rem);
+  height: clamp(2rem, 6vw, 5rem);
+  border-radius: 50%;
+  border: 2px solid var(--avatar-border-color);
+  background: url(../../images/Admin.jpg) center / cover;
+}
+
+main {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 4vh;
+  margin-bottom: 4vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 4vh;
+  column-gap: calc(8% / 3);
+}
+
+.tm-tasklist {
+  width: 23%;
+  box-sizing: border-box;
+  border-radius: 1vw;
+  padding: 1vw 1.2vw;
+  box-shadow: 2px 2px 4px var(--shadow-color);
+  background-color: var(--tasklist-back-color);
+}
+
+.tm-tasklist:last-child {
+  background-color: var(--tasklist-last-back-color);
+  transition: background-color 1s ease;
+}
+
+.tm-tasklist:last-child > .tm-tasklist-header {
+  margin-bottom: 0;
+}
+
+.tm-tasklist:last-child:hover {
+  background-color: var(--tasklist-back-color);
+}
+
+.tm-tasklist-header {
+  font-size: clamp(0.75rem, 2vw, 2rem);
+  font-weight: 600;
+  color: var(--dark-blue-color);
+  margin-bottom: 1vw;
+}
+
+.tm-tasklist:last-child > .tm-tasklist-header {
+  font-weight: 400;
+}
+
+.tm-tasklist:last-child > .tm-tasklist-header:hover {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tm-tasklist-add-task {
+  font-size: clamp(0.7rem, 1.5vw, 1.5rem);
+  color: var(--dark-grey-color);
+}
+
+.tm-tasklist-add-task:hover {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tm-tasklist-task {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1vw;
+  padding: 1vw;
+  margin-bottom: 1vw;
+  border-radius: 0.75vw;
+  box-shadow: 2px 2px 4px var(--shadow-color);
+  background-color: var(--light-blue-color);
+  border: 2px solid var(--light-blue-color);
+  transition: background-color 0.5s ease, border 1s ease;
+}
+
+.tm-tasklist-task:hover {
+  background-color: var(--mid-blue-color);
+  border-color: var(--dark-blue-color);
+}
+
+.tm-tasklist-task-text {
+  font-size: clamp(0.7rem, 1.5vw, 1.5rem);
+}
+
+.tm-tasklist-task-controls-row {
+  display: flex;
+  justify-content: center;
+  gap: calc(2vw / 3);
+}
+
+.tm-tasklist-task-controls-row:first-child {
+  margin-bottom: calc(2vw / 3);
+}
+
+.tm-tasklist-task-controls-icon {
+  width: 2vw;
+  height: 2vw;
+  opacity: 0.6;
+}
+
+.tm-tasklist-task-controls-icon:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.left-arrow-icon {
+  background: url(../../assets/left-arrow.svg) center / cover;
+}
+
+.tm-tasklist:first-child .left-arrow-icon {
+  display: none;
+}
+
+.right-arrow-icon {
+  background: url(../../assets/right-arrow.svg) center / cover;
+}
+
+.tm-tasklist:nth-last-child(2) .right-arrow-icon {
+  display: none;
+}
+
+.edit-icon {
+  background: url(../../assets/edit.svg) center / cover;
+}
+
+.delete-icon {
+  background: url(../../assets/delete-button.svg) center / cover;
+}
+
+#add-tasklist-input {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  border-radius: 0.7vw;
+  box-shadow: 0 0 4px var(--input-shadow-color);
+  padding: 0.6vw;
+  font-size: clamp(0.7rem, 1.5vw, 1.5rem);
+  color: var(--input-shadow-color);
+  opacity: 0.7;
+  outline: none;
+}
+#radiobutton {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#add-tasklist-input:focus,
+#add-tasklist-input:hover {
+  opacity: 1;
+}
